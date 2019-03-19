@@ -6,14 +6,13 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 #Used to send keypresses to the browser
 from selenium.webdriver.common.keys import Keys 
-#from selenium.webdriver.common.action_chains import ActionChains
 import time
 import sys
 import os
 
-UMS_ID = 'username' #Your Brandeis username from environment variable
-UMS_PASSWORD = 'password'    #Your Brandeis password from environment variable
-SPEED_CONSTANT = 1                    #Number of seconds to wait for page redirection
+UMS_ID = 'username' 
+UMS_PASSWORD = 'password'
+SPEED_CONSTANT = 1 #Number of seconds to wait for page redirection
 HEADLESS = True
 
 def get_stuff():
@@ -22,7 +21,7 @@ def get_stuff():
     browser = webdriver.Firefox()
 
 
-    #Sage Login Page
+    #UMS Login Page
 
     browser.get('https://identity.maine.edu/cas/login' )
 
