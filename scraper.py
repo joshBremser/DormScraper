@@ -12,7 +12,7 @@ import os
 
 UMS_ID = 'joshua.bremser' 
 UMS_PASSWORD = 
-SPEED_CONSTANT = 1 #Number of seconds to wait for page redirection
+SPEED_CONSTANT = .2 #Number of seconds to wait for page redirection
 HEADLESS = True
 
 #Setup
@@ -43,5 +43,12 @@ browser.get('https://mycampus.maine.edu/group/usm/home/-/launcher/fire/3937066')
 time.sleep(SPEED_CONSTANT)
 browser.get('https://mainestreetcs.maine.edu/psp/CSPRD_1/EMPLOYEE/HRMS/c/RES_LIFE.RL_SS_ROOM_STAFF.GBL?Page=RL_SS_ROOM_DTL&Action=U&CAMPUS=USM&INSTITUTION=UMS06&RL_BLDG_CD=PHILIPPI&RL_FLOOR_CD=1F_1S&RL_QUAD_CD=GORHAM&RL_ROOM_CD=104&STRM=1910')
 browser.switch_to.frame('ptifrmtgtframe')
-browser.execute_script("document.getElementById('RL_OCCUPANTS$hexcel$0').click()")
-
+browser.execute_script("document.getElementById('RL_OCCUPANTS$hviewall$0').click()")
+time.sleep(SPEED_CONSTANT)
+try:
+    for x in range(0,5):
+        personid = 'NAME1$span$' + str(x)
+        element = browser.find_element_by_id(personid)
+        print element.text
+except:
+    print ''
